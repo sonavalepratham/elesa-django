@@ -1,0 +1,42 @@
+{% extends 'base_card.html'%}
+{%block card%}
+
+{% for i in users %}
+{% if forloop.first %}
+<div class="row  my-4">
+{% endif%}
+
+<div class="col-sm my-4">
+            <div>
+                <div class="outer-div">
+            <div class="inner-div">
+              <div class="front">
+                <img class="front__bkg-photo" src="{{i.get_url}}" ></img>
+                <div class="front__face-photo"></div>
+                <div class="front__text">
+                  <h3 class="front__text-header">{{i.user.first_name}} {{i.user.last_name}}</h3>
+                  <p class="front__text-para">{{i.board}} {{i.post}}</p>
+                  
+                  
+                </div>
+              </div>
+              <div class="back">
+                <div class="social-media-wrapper">
+                  
+                  <a href="{{i.github}}" class="social-icon"><i class="fab fa-github-square" aria-hidden="true"></i></a>
+                  <a href="{{i.linkedin}}" class="social-icon"><i class="fab fa-linkedin-square" aria-hidden="true"></i></a>
+                  <a href="{{i.instagram}}" class="social-icon"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                </div>
+              </div>
+          
+            </div>
+            </div>
+          </div>
+          </div>
+
+{% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
+ </div><div class="row  my-4">
+{% endif%}
+{% endfor %}
+</div>
+{%endblock card%}

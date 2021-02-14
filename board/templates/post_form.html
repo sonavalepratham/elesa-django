@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+<h1>Information Form</h1>
+<form class="row g-3" method="post" enctype="multipart/form-data" action="{%url 'UpdateProfile'%}">
+{% csrf_token %}
+<div class="col-md-6">
+    <label for="inputState" class="form-label">Board</label>
+    <select id="inputState" name="board" class="form-select">
+      <option selected>FY</option>
+      <option>Assistant</option>
+      <option>Joint</option>
+      <option>Chief</option>
+    </select>
+  </div>
+<div class="col-md-6">
+    <label for="inputState" class="form-label">Post</label>
+    <select id="inputState" name="pref" class="form-select">
+      <option>WEB DEVELOPER</option>
+      <option>DESIGNER</option>
+      <option>ARO & PUBLICITY OFFICER</option>
+      <option>APTITUDE DEVELOPER</option>
+      <option>TECHNICAL DIRECTOR</option>
+      <option>CLUB SERVICE DIRECTOR</option>
+      <option>EVENT DIRECTOR</option>
+      <option>DIRECTOR OF FINANCE</option>
+      <option>SECRETARY</option>
+      <option>VICE PRESIDENT</option>
+      <option>PRESIDENT</option>
+    </select>
+  </div>
+
+  <div class="col-md-25">
+    <label for="inputEmail4" class="form-label">Full Post Name</label>
+    <input type="text" name="post" class="form-control" id="inputEmail4" placeholder="JOINT WEB DEVELOPER">
+  </div>
+
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Instagram Link</label>
+    <input type="text" name="insta" class="form-control" id="inputAddress" >
+  </div>
+  <div class="col-12">
+    <label for="inputAddress2" class="form-label">GitHub Link</label>
+    <input type="text" name="git" class="form-control" id="inputAddress2">
+  </div>
+  <div class="col-12">
+    <label for="inputAddress2" class="form-label">Linkedin Link</label>
+    <input type="text" name="linkedin" class="form-control" id="inputAddress2">
+  </div>
+
+<div class="col-12">
+    <label for="inputAddress2" class="form-label">Profile Picture To Display On Website</label>
+    <input type="file" id="img" name="image" accept="image/*">
+  </div>
+    
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+</div>
+{% endblock body %}

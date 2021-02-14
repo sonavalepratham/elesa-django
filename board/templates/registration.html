@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1>Registration</h1>
+<div class="container">
+<form class="row g-3" method="post" action="{%url 'Register'%}">
+{% csrf_token %}
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Email</label>
+    <input type="email" name="email" class="form-control" id="inputEmail4">
+  </div>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">PRN(capital)</label>
+    <input type="text" name="usrnm" class="form-control" id="inputEmail4" placeholder="2018BTEEN00100">
+  </div>
+
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Password</label>
+    <input type="password" name="pass1" class="form-control" id="inputPassword4">
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Confirm Password</label>
+    <input type="password" name="pass2" class="form-control" id="inputPassword4">
+  </div>
+
+  
+  <div class="col-6">
+    <label for="inputAddress2" class="form-label">First Name</label>
+    <input type="text" name="f_nm" class="form-control" id="inputAddress2" placeholder="">
+  </div>
+  <div class="col-6">
+    <label for="inputAddress2" class="form-label">Last Name</label>
+    <input type="text" name="l_nm" class="form-control" id="inputAddress2" placeholder="">
+  </div>
+  
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Register</button>
+  </div>
+</form>
+</div>
+{% endblock body %}
