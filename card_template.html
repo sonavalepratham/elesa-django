@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700|Poiret+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Oswald:200,400,700" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="{%static "css/card.css"%}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+
+
+<style>
+
+  .outer-div,
+  .inner-div {
+    height: 400px;
+    max-width: 300px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .outer-div {
+    perspective: 900px;
+    perspective-origin: 50% calc(50% - 18em);
+  }
+  
+  .inner-div {
+    margin: 10px * 5 auto;
+  
+    border-radius: 5px;
+    font-weight: 400;
+    color: #071011;
+    font-size: 1rem;
+    text-align: center;
+    transition: all 0.6s cubic-bezier(0.8, -0.4, 0.2, 1.7);
+    transform-style: preserve-3d;
+  
+    
+    &:hover .social-icon {
+      opacity: 1;
+      top: 0;
+    }
+  
+    &:hover .front__face-photo,
+    &:hover .front__footer {
+      opacity: 0;
+    }
+  }
+  
+  .outer-div:hover .inner-div {
+    transform: rotateY(180deg);
+  }
+  
+  .front,
+  .back {
+    position: relative;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+  }
+  
+  .front {
+    cursor: pointer;
+    height: 100%;
+    background: #fff;
+    backface-visibility: hidden;
+    border-radius: 5px;
+    box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3),
+      0 0 40px rgba(0, 0, 0, 0.1) inset;
+  }
+  
+  .front__bkg-photo {
+    position: relative;
+    height: 255px;
+    width: 300px;
+    background: url("")
+      no-repeat;
+    background-size: cover;
+    backface-visibility: hidden;
+    overflow: hidden;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+  
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  
+  .front__face-photo {
+    position: relative;
+    top: -60px;
+    height: 80px;
+    width: 80px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    background: url("https://github.com/sonavalepratham/elesa-django/blob/main/elesalogo1.png?raw=true")
+      no-repeat;
+    background-size: contain;
+    backface-visibility: hidden;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.8, -0.4, 0.2, 1.7);
+    z-index: 3;
+
+  }
+  
+  .front__text {
+    position: relative;
+    top: -55px;
+    margin: 0 auto;
+    font-family: "Montserrat";
+    font-size: 18px;
+    backface-visibility: hidden;
+  
+    .front__text-header {
+      font-weight: 700;
+      font-family: "Oswald";
+      text-transform: uppercase;
+      font-size: 20px;
+    }
+  
+    .front__text-para {
+      position: relative;
+      top: -5px;
+      padding-left: 0;
+      color: #000;
+      font-size: 14px;
+      letter-spacing: 0.4px;
+      font-weight: 400;
+      font-family: "Montserrat", sans-serif;
+    }
+  
+    .front-icons {
+      position: relative;
+      top: 0;
+      font-size: 14px;
+      margin-right: 6px;
+      color: gray;
+    }
+  
+    .front__text-hover {
+      position: relative;
+      top: 10px;
+      font-size: 10px;
+      color: tomato;
+      backface-visibility: hidden;
+  
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+  
+      border: 2px solid tomato;
+      padding: 8px 15px;
+      border-radius: 30px;
+  
+      background: tomato;
+      color: #fff;
+    }
+  }
+  
+  .back {
+    transform: rotateY(180deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #1a1a1a;
+    background-image: linear-gradient(to bottom right, rgb(162, 0, 255), rgb(150, 32, 32));
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    box-shadow: 0 15px 10px -10px rgba(0, 38, 255, 0.5), 0 1px 4px rgba(0, 38, 255, 0.3),
+      0 0 40px rgba(0, 38, 255, 0.3) inset;
+  }
+  
+  .social-media-wrapper {
+    font-size: 36px;
+  
+    .social-icon {
+      position: relative;
+      top: 20px;
+      margin-left: 5px;
+      margin-right: 5px;
+      opacity: 0;
+      color: #fff;
+      transition: all 0.4s cubic-bezier(0.3, 0.7, 0.1, 1.9);
+    }
+  
+    .social-icon:nth-child(1) {
+      transition-delay: 0.6s;
+    }
+  
+    .social-icon:nth-child(2) {
+      transition-delay: 0.7s;
+    }
+  
+    .social-icon:nth-child(3) {
+      transition-delay: 0.8s;
+    }
+  
+    .social-icon:nth-child(4) {
+      transition-delay: 0.9s;
+    }
+  }
+  
+  .fab {
+    position: relative;
+    top: 0;
+    left: 0;
+    transition: all 200ms ease-in-out;
+  }
+  
+  .fab:hover {
+    top: -5px;
+  }
+ 
+  
+</style>
+    <title></title>
+</head>
+<body>
+    
+    <div class="container">
+        <!-- first -->
+
+        
+         
+<div class="row  my-4">
+
+<div class="col-sm my-4">
+            <div>
+                <div class="outer-div">
+            <div class="inner-div">
+              <div class="front">
+                <img class="front__bkg-photo" src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80" ></img>
+                <div class="front__face-photo"></div>
+                <div class="front__text">
+                  <h3 class="front__text-header">Prathmesh Sonavale</h3>
+                  <p class="front__text-para">Joint Web Developer</p>
+                  
+                  
+                </div>
+              </div>
+              <div class="back">
+                <div class="social-media-wrapper">
+                  <p style="font-size: 14px; color:white; font-family: 'Ubuntu', sans-serif;">About me...</p>
+                  <a href="{{i.github}}" class="social-icon"><i class="fab fa-github-square" aria-hidden="true"></i></a>
+                  <a href="{{i.linkedin}}" class="social-icon"><i class="fab fa-linkedin-square" aria-hidden="true"></i></a>
+                  <a href="{{i.instagram}}" class="social-icon"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                </div>
+              </div>
+          
+            </div>
+            </div>
+          </div>
+          </div>
+
+ </div><div class="row  my-4">
+</div>
+      
+        
+
+        
+    </div>
+    
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</html>
